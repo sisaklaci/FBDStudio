@@ -1,0 +1,114 @@
+{
+  "formatVersion" : 1,
+  "name" : "Parking Garage Car Counter",
+  "author" : "FBD Studio",
+  "description" : "CTUD tracks occupancy from entry/exit sensors and lights a FULL sign.",
+  "globalVariables" : [ ],
+  "pous" : [ {
+    "name" : "MAIN",
+    "kind" : "PROGRAM",
+    "variables" : [ {
+      "name" : "CAR_ENTER",
+      "type" : "BOOL",
+      "kind" : "VAR_INPUT",
+      "initialValue" : "FALSE",
+      "comment" : ""
+    }, {
+      "name" : "CAR_EXIT",
+      "type" : "BOOL",
+      "kind" : "VAR_INPUT",
+      "initialValue" : "FALSE",
+      "comment" : ""
+    }, {
+      "name" : "RESET_COUNT",
+      "type" : "BOOL",
+      "kind" : "VAR_INPUT",
+      "initialValue" : "FALSE",
+      "comment" : ""
+    }, {
+      "name" : "CARS_PARKED",
+      "type" : "DINT",
+      "kind" : "VAR_OUTPUT",
+      "initialValue" : "0",
+      "comment" : ""
+    }, {
+      "name" : "LOT_FULL",
+      "type" : "BOOL",
+      "kind" : "VAR_OUTPUT",
+      "initialValue" : "FALSE",
+      "comment" : ""
+    } ],
+    "network" : {
+      "blocks" : [ {
+        "id" : "737170e0-81f0-4d18-93a2-5ef4bb6c26a9",
+        "typeId" : "CTUD",
+        "instanceName" : "occupancy",
+        "x" : 320.0,
+        "y" : 100.0,
+        "manualExecutionOrder" : -1,
+        "extraPinCount" : -1,
+        "pinLiterals" : {
+          "PV" : "50"
+        },
+        "negatedPins" : { }
+      } ],
+      "connections" : [ {
+        "id" : "9efbe47a-5652-4828-8a3c-9a21a926ca3f",
+        "source" : {
+          "blockInstanceId" : null,
+          "pinName" : "CAR_ENTER"
+        },
+        "target" : {
+          "blockInstanceId" : "737170e0-81f0-4d18-93a2-5ef4bb6c26a9",
+          "pinName" : "CU"
+        },
+        "waypoints" : [ ]
+      }, {
+        "id" : "626e77c0-7507-448b-bde4-c37cd1d9dea3",
+        "source" : {
+          "blockInstanceId" : null,
+          "pinName" : "CAR_EXIT"
+        },
+        "target" : {
+          "blockInstanceId" : "737170e0-81f0-4d18-93a2-5ef4bb6c26a9",
+          "pinName" : "CD"
+        },
+        "waypoints" : [ ]
+      }, {
+        "id" : "af1a7d0f-0e16-4f1e-b404-ee7399d2b904",
+        "source" : {
+          "blockInstanceId" : null,
+          "pinName" : "RESET_COUNT"
+        },
+        "target" : {
+          "blockInstanceId" : "737170e0-81f0-4d18-93a2-5ef4bb6c26a9",
+          "pinName" : "R"
+        },
+        "waypoints" : [ ]
+      }, {
+        "id" : "f0543bf0-5eb5-4894-a4bf-16ed19640360",
+        "source" : {
+          "blockInstanceId" : "737170e0-81f0-4d18-93a2-5ef4bb6c26a9",
+          "pinName" : "CV"
+        },
+        "target" : {
+          "blockInstanceId" : null,
+          "pinName" : "CARS_PARKED"
+        },
+        "waypoints" : [ ]
+      }, {
+        "id" : "a0300a58-a050-4e3d-ad87-b9a630147d86",
+        "source" : {
+          "blockInstanceId" : "737170e0-81f0-4d18-93a2-5ef4bb6c26a9",
+          "pinName" : "QU"
+        },
+        "target" : {
+          "blockInstanceId" : null,
+          "pinName" : "LOT_FULL"
+        },
+        "waypoints" : [ ]
+      } ]
+    },
+    "comment" : ""
+  } ]
+}

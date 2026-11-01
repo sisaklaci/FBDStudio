@@ -1,0 +1,40 @@
+[
+  { "id": "PID", "displayName": "PID", "category": "EXTENDED", "standard": false, "stateful": true,
+    "description": "Proportional-Integral-Derivative control loop. Common vendor extension block (not part of the IEC 61131-3 core standard, but near-universally supplied by PLC vendors).",
+    "inputs": [
+      { "name": "SP", "type": "REAL", "defaultLiteral": "0.0" },
+      { "name": "PV", "type": "REAL", "defaultLiteral": "0.0" },
+      { "name": "KP", "type": "REAL", "defaultLiteral": "1.0" },
+      { "name": "KI", "type": "REAL", "defaultLiteral": "0.0" },
+      { "name": "KD", "type": "REAL", "defaultLiteral": "0.0" },
+      { "name": "MN", "type": "REAL", "defaultLiteral": "0.0" },
+      { "name": "MX", "type": "REAL", "defaultLiteral": "100.0" },
+      { "name": "EN", "type": "BOOL", "defaultLiteral": "TRUE" }
+    ],
+    "outputs": [
+      { "name": "OUT", "type": "REAL" },
+      { "name": "ERR", "type": "REAL" }
+    ] },
+  { "id": "SCALE", "displayName": "SCALE", "category": "EXTENDED", "standard": false,
+    "description": "Linearly rescales IN from range [INMIN, INMAX] to range [OUTMIN, OUTMAX]. Common vendor extension block.",
+    "inputs": [
+      { "name": "IN", "type": "REAL", "defaultLiteral": "0.0" },
+      { "name": "INMIN", "type": "REAL", "defaultLiteral": "0.0" },
+      { "name": "INMAX", "type": "REAL", "defaultLiteral": "100.0" },
+      { "name": "OUTMIN", "type": "REAL", "defaultLiteral": "0.0" },
+      { "name": "OUTMAX", "type": "REAL", "defaultLiteral": "100.0" }
+    ],
+    "outputs": [
+      { "name": "OUT", "type": "REAL" }
+    ] },
+  { "id": "HYSTERESIS", "displayName": "HYSTERESIS", "category": "EXTENDED", "standard": false, "stateful": true,
+    "description": "Two-threshold hysteresis / bang-bang comparator used for on/off control loops. Common vendor extension block.",
+    "inputs": [
+      { "name": "IN", "type": "REAL", "defaultLiteral": "0.0" },
+      { "name": "LOW", "type": "REAL", "defaultLiteral": "0.0" },
+      { "name": "HIGH", "type": "REAL", "defaultLiteral": "10.0" }
+    ],
+    "outputs": [
+      { "name": "Q", "type": "BOOL" }
+    ] }
+]

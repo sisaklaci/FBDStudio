@@ -1,0 +1,116 @@
+{
+  "formatVersion" : 1,
+  "name" : "Blinking Alarm (TP)",
+  "author" : "FBD Studio",
+  "description" : "A self-retriggering TP pulse timer used as an alarm beacon flasher.",
+  "globalVariables" : [ ],
+  "pous" : [ {
+    "name" : "MAIN",
+    "kind" : "PROGRAM",
+    "variables" : [ {
+      "name" : "ALARM_ACTIVE",
+      "type" : "BOOL",
+      "kind" : "VAR_INPUT",
+      "initialValue" : "FALSE",
+      "comment" : ""
+    }, {
+      "name" : "BEACON",
+      "type" : "BOOL",
+      "kind" : "VAR_OUTPUT",
+      "initialValue" : "FALSE",
+      "comment" : ""
+    } ],
+    "network" : {
+      "blocks" : [ {
+        "id" : "5b734347-0e77-447b-a2ba-ff81d0fa733a",
+        "typeId" : "AND",
+        "instanceName" : "",
+        "x" : 240.0,
+        "y" : 100.0,
+        "manualExecutionOrder" : -1,
+        "extraPinCount" : -1,
+        "pinLiterals" : { },
+        "negatedPins" : { }
+      }, {
+        "id" : "357ce246-3086-4042-8a77-d32bfe3a2af1",
+        "typeId" : "TP",
+        "instanceName" : "flash_pulse",
+        "x" : 440.0,
+        "y" : 100.0,
+        "manualExecutionOrder" : -1,
+        "extraPinCount" : -1,
+        "pinLiterals" : {
+          "PT" : "T#500ms"
+        },
+        "negatedPins" : { }
+      }, {
+        "id" : "56068e8f-aa9a-4068-bb24-22a5cff05620",
+        "typeId" : "NOT",
+        "instanceName" : "",
+        "x" : 640.0,
+        "y" : 100.0,
+        "manualExecutionOrder" : -1,
+        "extraPinCount" : -1,
+        "pinLiterals" : { },
+        "negatedPins" : { }
+      } ],
+      "connections" : [ {
+        "id" : "0f8fb57e-d84a-43ec-bfab-18f6a7821fe3",
+        "source" : {
+          "blockInstanceId" : null,
+          "pinName" : "ALARM_ACTIVE"
+        },
+        "target" : {
+          "blockInstanceId" : "5b734347-0e77-447b-a2ba-ff81d0fa733a",
+          "pinName" : "IN1"
+        },
+        "waypoints" : [ ]
+      }, {
+        "id" : "aecf9447-0fc3-40c2-8ead-93d57dd67fdd",
+        "source" : {
+          "blockInstanceId" : "56068e8f-aa9a-4068-bb24-22a5cff05620",
+          "pinName" : "Q"
+        },
+        "target" : {
+          "blockInstanceId" : "5b734347-0e77-447b-a2ba-ff81d0fa733a",
+          "pinName" : "IN2"
+        },
+        "waypoints" : [ ]
+      }, {
+        "id" : "10216a43-67d1-4968-8e75-cd8a9abe6404",
+        "source" : {
+          "blockInstanceId" : "5b734347-0e77-447b-a2ba-ff81d0fa733a",
+          "pinName" : "Q"
+        },
+        "target" : {
+          "blockInstanceId" : "357ce246-3086-4042-8a77-d32bfe3a2af1",
+          "pinName" : "IN"
+        },
+        "waypoints" : [ ]
+      }, {
+        "id" : "466d7353-10b3-4886-a565-a79bd3b48054",
+        "source" : {
+          "blockInstanceId" : "357ce246-3086-4042-8a77-d32bfe3a2af1",
+          "pinName" : "Q"
+        },
+        "target" : {
+          "blockInstanceId" : "56068e8f-aa9a-4068-bb24-22a5cff05620",
+          "pinName" : "IN"
+        },
+        "waypoints" : [ ]
+      }, {
+        "id" : "584cb2af-0b9c-4319-80ee-e13f3b1656b9",
+        "source" : {
+          "blockInstanceId" : "357ce246-3086-4042-8a77-d32bfe3a2af1",
+          "pinName" : "Q"
+        },
+        "target" : {
+          "blockInstanceId" : null,
+          "pinName" : "BEACON"
+        },
+        "waypoints" : [ ]
+      } ]
+    },
+    "comment" : ""
+  } ]
+}

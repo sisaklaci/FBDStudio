@@ -1,0 +1,133 @@
+{
+  "formatVersion" : 1,
+  "name" : "Emergency Stop Chain",
+  "author" : "FBD Studio",
+  "description" : "A multi-station E-Stop chain: any station tripping latches a plant-wide stop.",
+  "globalVariables" : [ ],
+  "pous" : [ {
+    "name" : "MAIN",
+    "kind" : "PROGRAM",
+    "variables" : [ {
+      "name" : "ESTOP_STATION_1",
+      "type" : "BOOL",
+      "kind" : "VAR_INPUT",
+      "initialValue" : "FALSE",
+      "comment" : ""
+    }, {
+      "name" : "ESTOP_STATION_2",
+      "type" : "BOOL",
+      "kind" : "VAR_INPUT",
+      "initialValue" : "FALSE",
+      "comment" : ""
+    }, {
+      "name" : "ESTOP_STATION_3",
+      "type" : "BOOL",
+      "kind" : "VAR_INPUT",
+      "initialValue" : "FALSE",
+      "comment" : ""
+    }, {
+      "name" : "RESET_ACK",
+      "type" : "BOOL",
+      "kind" : "VAR_INPUT",
+      "initialValue" : "FALSE",
+      "comment" : ""
+    }, {
+      "name" : "PLANT_SAFE_TO_RUN",
+      "type" : "BOOL",
+      "kind" : "VAR_OUTPUT",
+      "initialValue" : "FALSE",
+      "comment" : ""
+    } ],
+    "network" : {
+      "blocks" : [ {
+        "id" : "0b163109-85af-4139-a41e-0ab8675141d1",
+        "typeId" : "OR",
+        "instanceName" : "",
+        "x" : 280.0,
+        "y" : 100.0,
+        "manualExecutionOrder" : -1,
+        "extraPinCount" : 3,
+        "pinLiterals" : { },
+        "negatedPins" : { }
+      }, {
+        "id" : "90061c33-f7d9-480f-b443-41db1459cdf2",
+        "typeId" : "RS",
+        "instanceName" : "estop_latch",
+        "x" : 480.0,
+        "y" : 100.0,
+        "manualExecutionOrder" : -1,
+        "extraPinCount" : -1,
+        "pinLiterals" : { },
+        "negatedPins" : { }
+      } ],
+      "connections" : [ {
+        "id" : "04eaf522-364a-47c2-baa5-55e98f9d771c",
+        "source" : {
+          "blockInstanceId" : null,
+          "pinName" : "ESTOP_STATION_1"
+        },
+        "target" : {
+          "blockInstanceId" : "0b163109-85af-4139-a41e-0ab8675141d1",
+          "pinName" : "IN1"
+        },
+        "waypoints" : [ ]
+      }, {
+        "id" : "9ffbfc33-53c0-4b4f-937c-84d18f3fa916",
+        "source" : {
+          "blockInstanceId" : null,
+          "pinName" : "ESTOP_STATION_2"
+        },
+        "target" : {
+          "blockInstanceId" : "0b163109-85af-4139-a41e-0ab8675141d1",
+          "pinName" : "IN2"
+        },
+        "waypoints" : [ ]
+      }, {
+        "id" : "97247e2d-bc9f-4477-ad5e-db62b42a696c",
+        "source" : {
+          "blockInstanceId" : null,
+          "pinName" : "ESTOP_STATION_3"
+        },
+        "target" : {
+          "blockInstanceId" : "0b163109-85af-4139-a41e-0ab8675141d1",
+          "pinName" : "IN3"
+        },
+        "waypoints" : [ ]
+      }, {
+        "id" : "ea223707-c5dd-4fc7-ab5f-0791b6304499",
+        "source" : {
+          "blockInstanceId" : "0b163109-85af-4139-a41e-0ab8675141d1",
+          "pinName" : "Q"
+        },
+        "target" : {
+          "blockInstanceId" : "90061c33-f7d9-480f-b443-41db1459cdf2",
+          "pinName" : "R1"
+        },
+        "waypoints" : [ ]
+      }, {
+        "id" : "b4394bff-1ac2-4a09-b556-f23c197b1e0c",
+        "source" : {
+          "blockInstanceId" : null,
+          "pinName" : "RESET_ACK"
+        },
+        "target" : {
+          "blockInstanceId" : "90061c33-f7d9-480f-b443-41db1459cdf2",
+          "pinName" : "S"
+        },
+        "waypoints" : [ ]
+      }, {
+        "id" : "635a962b-2bad-4997-b3f9-7c0abcaade5d",
+        "source" : {
+          "blockInstanceId" : "90061c33-f7d9-480f-b443-41db1459cdf2",
+          "pinName" : "Q1"
+        },
+        "target" : {
+          "blockInstanceId" : null,
+          "pinName" : "PLANT_SAFE_TO_RUN"
+        },
+        "waypoints" : [ ]
+      } ]
+    },
+    "comment" : ""
+  } ]
+}

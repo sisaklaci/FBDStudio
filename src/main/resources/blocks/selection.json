@@ -1,0 +1,47 @@
+[
+  { "id": "MOVE", "displayName": "MOVE", "category": "SELECTION", "standard": true,
+    "description": "Passes IN through to Q unchanged. IEC 61131-3 standard block.",
+    "inputs": [ { "name": "IN", "type": "ANY", "defaultLiteral": "0" } ],
+    "outputs": [ { "name": "Q", "type": "ANY" } ] },
+  { "id": "SEL", "displayName": "SEL", "category": "SELECTION", "standard": true,
+    "description": "Binary select: Q = G ? IN1 : IN0. IEC 61131-3 standard block.",
+    "inputs": [
+      { "name": "G", "type": "BOOL", "defaultLiteral": "FALSE" },
+      { "name": "IN0", "type": "ANY", "defaultLiteral": "0" },
+      { "name": "IN1", "type": "ANY", "defaultLiteral": "0" }
+    ],
+    "outputs": [ { "name": "Q", "type": "ANY" } ] },
+  { "id": "MUX", "displayName": "MUX", "category": "SELECTION", "standard": true,
+    "description": "Multiplexer: Q = INk, where k is the 0-based index K. IEC 61131-3 standard block.",
+    "variadicInputs": true, "minInputs": 2, "maxInputs": 8,
+    "inputs": [
+      { "name": "K", "type": "DINT", "defaultLiteral": "0" },
+      { "name": "IN0", "type": "ANY", "defaultLiteral": "0" },
+      { "name": "IN1", "type": "ANY", "defaultLiteral": "0" }
+    ],
+    "outputs": [ { "name": "Q", "type": "ANY" } ] },
+  { "id": "LIMIT", "displayName": "LIMIT", "category": "SELECTION", "standard": true,
+    "description": "Clamps IN between MN and MX. IEC 61131-3 standard block.",
+    "inputs": [
+      { "name": "MN", "type": "ANY", "defaultLiteral": "0" },
+      { "name": "IN", "type": "ANY", "defaultLiteral": "0" },
+      { "name": "MX", "type": "ANY", "defaultLiteral": "100" }
+    ],
+    "outputs": [ { "name": "Q", "type": "ANY" } ] },
+  { "id": "MAX", "displayName": "MAX", "category": "SELECTION", "standard": true,
+    "description": "Largest of all inputs. IEC 61131-3 standard block.",
+    "variadicInputs": true, "minInputs": 2, "maxInputs": 8,
+    "inputs": [
+      { "name": "IN1", "type": "ANY", "defaultLiteral": "0" },
+      { "name": "IN2", "type": "ANY", "defaultLiteral": "0" }
+    ],
+    "outputs": [ { "name": "Q", "type": "ANY" } ] },
+  { "id": "MIN", "displayName": "MIN", "category": "SELECTION", "standard": true,
+    "description": "Smallest of all inputs. IEC 61131-3 standard block.",
+    "variadicInputs": true, "minInputs": 2, "maxInputs": 8,
+    "inputs": [
+      { "name": "IN1", "type": "ANY", "defaultLiteral": "0" },
+      { "name": "IN2", "type": "ANY", "defaultLiteral": "0" }
+    ],
+    "outputs": [ { "name": "Q", "type": "ANY" } ] }
+]

@@ -1,0 +1,32 @@
+[
+  { "id": "TON", "displayName": "TON (On-delay)", "category": "TIMER", "standard": true, "stateful": true,
+    "description": "Output Q becomes TRUE PT after IN becomes TRUE (resets immediately if IN goes FALSE). IEC 61131-3 standard block.",
+    "inputs": [
+      { "name": "IN", "type": "BOOL", "defaultLiteral": "FALSE" },
+      { "name": "PT", "type": "TIME", "defaultLiteral": "T#1s" }
+    ],
+    "outputs": [
+      { "name": "Q", "type": "BOOL" },
+      { "name": "ET", "type": "TIME" }
+    ] },
+  { "id": "TOF", "displayName": "TOF (Off-delay)", "category": "TIMER", "standard": true, "stateful": true,
+    "description": "Output Q stays TRUE for PT after IN becomes FALSE. IEC 61131-3 standard block.",
+    "inputs": [
+      { "name": "IN", "type": "BOOL", "defaultLiteral": "FALSE" },
+      { "name": "PT", "type": "TIME", "defaultLiteral": "T#1s" }
+    ],
+    "outputs": [
+      { "name": "Q", "type": "BOOL" },
+      { "name": "ET", "type": "TIME" }
+    ] },
+  { "id": "TP", "displayName": "TP (Pulse)", "category": "TIMER", "standard": true, "stateful": true,
+    "description": "Generates a single fixed-duration pulse of length PT when IN becomes TRUE. IEC 61131-3 standard block.",
+    "inputs": [
+      { "name": "IN", "type": "BOOL", "defaultLiteral": "FALSE" },
+      { "name": "PT", "type": "TIME", "defaultLiteral": "T#1s" }
+    ],
+    "outputs": [
+      { "name": "Q", "type": "BOOL" },
+      { "name": "ET", "type": "TIME" }
+    ] }
+]

@@ -1,0 +1,39 @@
+[
+  { "id": "ADD", "displayName": "ADD (+)", "category": "ARITHMETIC", "standard": true,
+    "description": "Sum of all inputs. IEC 61131-3 standard block.",
+    "variadicInputs": true, "minInputs": 2, "maxInputs": 8,
+    "inputs": [
+      { "name": "IN1", "type": "ANY", "defaultLiteral": "0" },
+      { "name": "IN2", "type": "ANY", "defaultLiteral": "0" }
+    ],
+    "outputs": [ { "name": "Q", "type": "ANY" } ] },
+  { "id": "SUB", "displayName": "SUB (-)", "category": "ARITHMETIC", "standard": true,
+    "description": "IN1 - IN2. IEC 61131-3 standard block.",
+    "inputs": [
+      { "name": "IN1", "type": "ANY", "defaultLiteral": "0" },
+      { "name": "IN2", "type": "ANY", "defaultLiteral": "0" }
+    ],
+    "outputs": [ { "name": "Q", "type": "ANY" } ] },
+  { "id": "MUL", "displayName": "MUL (*)", "category": "ARITHMETIC", "standard": true,
+    "description": "Product of all inputs. IEC 61131-3 standard block.",
+    "variadicInputs": true, "minInputs": 2, "maxInputs": 8,
+    "inputs": [
+      { "name": "IN1", "type": "ANY", "defaultLiteral": "0" },
+      { "name": "IN2", "type": "ANY", "defaultLiteral": "0" }
+    ],
+    "outputs": [ { "name": "Q", "type": "ANY" } ] },
+  { "id": "DIV", "displayName": "DIV (/)", "category": "ARITHMETIC", "standard": true,
+    "description": "IN1 / IN2. IEC 61131-3 standard block.",
+    "inputs": [
+      { "name": "IN1", "type": "ANY", "defaultLiteral": "0" },
+      { "name": "IN2", "type": "ANY", "defaultLiteral": "1" }
+    ],
+    "outputs": [ { "name": "Q", "type": "ANY" } ] },
+  { "id": "MOD", "displayName": "MOD", "category": "ARITHMETIC", "standard": true,
+    "description": "Remainder of IN1 / IN2. IEC 61131-3 standard block.",
+    "inputs": [
+      { "name": "IN1", "type": "DINT", "defaultLiteral": "0" },
+      { "name": "IN2", "type": "DINT", "defaultLiteral": "1" }
+    ],
+    "outputs": [ { "name": "Q", "type": "DINT" } ] }
+]

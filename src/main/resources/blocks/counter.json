@@ -1,0 +1,38 @@
+[
+  { "id": "CTU", "displayName": "CTU (Count up)", "category": "COUNTER", "standard": true, "stateful": true,
+    "description": "Counts up on each rising edge of CU until reaching PV; Q becomes TRUE when CV >= PV. IEC 61131-3 standard block.",
+    "inputs": [
+      { "name": "CU", "type": "BOOL", "defaultLiteral": "FALSE" },
+      { "name": "R", "type": "BOOL", "defaultLiteral": "FALSE" },
+      { "name": "PV", "type": "DINT", "defaultLiteral": "10" }
+    ],
+    "outputs": [
+      { "name": "Q", "type": "BOOL" },
+      { "name": "CV", "type": "DINT" }
+    ] },
+  { "id": "CTD", "displayName": "CTD (Count down)", "category": "COUNTER", "standard": true, "stateful": true,
+    "description": "Counts down on each rising edge of CD from PV to 0; Q becomes TRUE when CV <= 0. IEC 61131-3 standard block.",
+    "inputs": [
+      { "name": "CD", "type": "BOOL", "defaultLiteral": "FALSE" },
+      { "name": "LD", "type": "BOOL", "defaultLiteral": "FALSE" },
+      { "name": "PV", "type": "DINT", "defaultLiteral": "10" }
+    ],
+    "outputs": [
+      { "name": "Q", "type": "BOOL" },
+      { "name": "CV", "type": "DINT" }
+    ] },
+  { "id": "CTUD", "displayName": "CTUD (Up/down)", "category": "COUNTER", "standard": true, "stateful": true,
+    "description": "Bidirectional counter with separate count-up and count-down clocks. IEC 61131-3 standard block.",
+    "inputs": [
+      { "name": "CU", "type": "BOOL", "defaultLiteral": "FALSE" },
+      { "name": "CD", "type": "BOOL", "defaultLiteral": "FALSE" },
+      { "name": "R", "type": "BOOL", "defaultLiteral": "FALSE" },
+      { "name": "LD", "type": "BOOL", "defaultLiteral": "FALSE" },
+      { "name": "PV", "type": "DINT", "defaultLiteral": "10" }
+    ],
+    "outputs": [
+      { "name": "QU", "type": "BOOL" },
+      { "name": "QD", "type": "BOOL" },
+      { "name": "CV", "type": "DINT" }
+    ] }
+]

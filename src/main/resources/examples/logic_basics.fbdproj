@@ -1,0 +1,116 @@
+{
+  "formatVersion" : 1,
+  "name" : "Logic Basics",
+  "author" : "FBD Studio",
+  "description" : "AND / OR / NOT fundamentals: a simple safety-permit circuit.",
+  "globalVariables" : [ ],
+  "pous" : [ {
+    "name" : "MAIN",
+    "kind" : "PROGRAM",
+    "variables" : [ {
+      "name" : "RUN_PERMIT",
+      "type" : "BOOL",
+      "kind" : "VAR_INPUT",
+      "initialValue" : "FALSE",
+      "comment" : ""
+    }, {
+      "name" : "GUARD_CLOSED",
+      "type" : "BOOL",
+      "kind" : "VAR_INPUT",
+      "initialValue" : "FALSE",
+      "comment" : ""
+    }, {
+      "name" : "E_STOP",
+      "type" : "BOOL",
+      "kind" : "VAR_INPUT",
+      "initialValue" : "FALSE",
+      "comment" : ""
+    }, {
+      "name" : "MOTOR_ON",
+      "type" : "BOOL",
+      "kind" : "VAR_OUTPUT",
+      "initialValue" : "FALSE",
+      "comment" : ""
+    } ],
+    "network" : {
+      "blocks" : [ {
+        "id" : "d025f077-4128-46df-9df0-1fc5dfdc50d1",
+        "typeId" : "NOT",
+        "instanceName" : "",
+        "x" : 260.0,
+        "y" : 60.0,
+        "manualExecutionOrder" : -1,
+        "extraPinCount" : -1,
+        "pinLiterals" : { },
+        "negatedPins" : { }
+      }, {
+        "id" : "238610e0-d070-45fe-b794-d00ace619aa9",
+        "typeId" : "AND",
+        "instanceName" : "",
+        "x" : 460.0,
+        "y" : 60.0,
+        "manualExecutionOrder" : -1,
+        "extraPinCount" : 3,
+        "pinLiterals" : { },
+        "negatedPins" : { }
+      } ],
+      "connections" : [ {
+        "id" : "0ad2352f-03bb-49f4-9110-f19ba34f6fc1",
+        "source" : {
+          "blockInstanceId" : null,
+          "pinName" : "E_STOP"
+        },
+        "target" : {
+          "blockInstanceId" : "d025f077-4128-46df-9df0-1fc5dfdc50d1",
+          "pinName" : "IN"
+        },
+        "waypoints" : [ ]
+      }, {
+        "id" : "9e4e4770-c226-4e66-916d-a0d49ae7ae7f",
+        "source" : {
+          "blockInstanceId" : null,
+          "pinName" : "RUN_PERMIT"
+        },
+        "target" : {
+          "blockInstanceId" : "238610e0-d070-45fe-b794-d00ace619aa9",
+          "pinName" : "IN1"
+        },
+        "waypoints" : [ ]
+      }, {
+        "id" : "52a313a5-e7fe-4073-8e02-c6b3c845a9f1",
+        "source" : {
+          "blockInstanceId" : null,
+          "pinName" : "GUARD_CLOSED"
+        },
+        "target" : {
+          "blockInstanceId" : "238610e0-d070-45fe-b794-d00ace619aa9",
+          "pinName" : "IN2"
+        },
+        "waypoints" : [ ]
+      }, {
+        "id" : "14b1d395-7247-415e-8343-6fc04999bf01",
+        "source" : {
+          "blockInstanceId" : "d025f077-4128-46df-9df0-1fc5dfdc50d1",
+          "pinName" : "Q"
+        },
+        "target" : {
+          "blockInstanceId" : "238610e0-d070-45fe-b794-d00ace619aa9",
+          "pinName" : "IN3"
+        },
+        "waypoints" : [ ]
+      }, {
+        "id" : "5c96e36a-e98e-407c-be3f-1e8ac93aca65",
+        "source" : {
+          "blockInstanceId" : "238610e0-d070-45fe-b794-d00ace619aa9",
+          "pinName" : "Q"
+        },
+        "target" : {
+          "blockInstanceId" : null,
+          "pinName" : "MOTOR_ON"
+        },
+        "waypoints" : [ ]
+      } ]
+    },
+    "comment" : ""
+  } ]
+}

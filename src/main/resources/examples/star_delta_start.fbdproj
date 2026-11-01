@@ -1,0 +1,156 @@
+{
+  "formatVersion" : 1,
+  "name" : "Star-Delta Motor Start Sequence",
+  "author" : "FBD Studio",
+  "description" : "Classic reduced-voltage motor start: star contactor, timed transition, then delta.",
+  "globalVariables" : [ ],
+  "pous" : [ {
+    "name" : "MAIN",
+    "kind" : "PROGRAM",
+    "variables" : [ {
+      "name" : "START_PB",
+      "type" : "BOOL",
+      "kind" : "VAR_INPUT",
+      "initialValue" : "FALSE",
+      "comment" : ""
+    }, {
+      "name" : "STOP_PB",
+      "type" : "BOOL",
+      "kind" : "VAR_INPUT",
+      "initialValue" : "FALSE",
+      "comment" : ""
+    }, {
+      "name" : "MAIN_CONTACTOR",
+      "type" : "BOOL",
+      "kind" : "VAR_OUTPUT",
+      "initialValue" : "FALSE",
+      "comment" : ""
+    }, {
+      "name" : "STAR_CONTACTOR",
+      "type" : "BOOL",
+      "kind" : "VAR_OUTPUT",
+      "initialValue" : "FALSE",
+      "comment" : ""
+    }, {
+      "name" : "DELTA_CONTACTOR",
+      "type" : "BOOL",
+      "kind" : "VAR_OUTPUT",
+      "initialValue" : "FALSE",
+      "comment" : ""
+    } ],
+    "network" : {
+      "blocks" : [ {
+        "id" : "259425e1-3524-426a-917f-990d44b31239",
+        "typeId" : "SR",
+        "instanceName" : "run_latch",
+        "x" : 240.0,
+        "y" : 60.0,
+        "manualExecutionOrder" : -1,
+        "extraPinCount" : -1,
+        "pinLiterals" : { },
+        "negatedPins" : { }
+      }, {
+        "id" : "e25fdd65-eafe-4b9e-a448-369c2c8dc92a",
+        "typeId" : "TON",
+        "instanceName" : "star_time",
+        "x" : 440.0,
+        "y" : 140.0,
+        "manualExecutionOrder" : -1,
+        "extraPinCount" : -1,
+        "pinLiterals" : {
+          "PT" : "T#3s"
+        },
+        "negatedPins" : { }
+      }, {
+        "id" : "97870872-49ff-4222-a315-68236e451917",
+        "typeId" : "NOT",
+        "instanceName" : "",
+        "x" : 640.0,
+        "y" : 140.0,
+        "manualExecutionOrder" : -1,
+        "extraPinCount" : -1,
+        "pinLiterals" : { },
+        "negatedPins" : { }
+      } ],
+      "connections" : [ {
+        "id" : "7cb73b26-775c-483a-8e88-c0147c91804e",
+        "source" : {
+          "blockInstanceId" : null,
+          "pinName" : "START_PB"
+        },
+        "target" : {
+          "blockInstanceId" : "259425e1-3524-426a-917f-990d44b31239",
+          "pinName" : "S1"
+        },
+        "waypoints" : [ ]
+      }, {
+        "id" : "c29bbf5a-0ac3-4d0c-8f40-85698912abca",
+        "source" : {
+          "blockInstanceId" : null,
+          "pinName" : "STOP_PB"
+        },
+        "target" : {
+          "blockInstanceId" : "259425e1-3524-426a-917f-990d44b31239",
+          "pinName" : "R"
+        },
+        "waypoints" : [ ]
+      }, {
+        "id" : "34bf6588-3863-4056-8f3b-40888df6dda8",
+        "source" : {
+          "blockInstanceId" : "259425e1-3524-426a-917f-990d44b31239",
+          "pinName" : "Q1"
+        },
+        "target" : {
+          "blockInstanceId" : null,
+          "pinName" : "MAIN_CONTACTOR"
+        },
+        "waypoints" : [ ]
+      }, {
+        "id" : "61c1c302-3dee-43ae-8498-2502c98defcb",
+        "source" : {
+          "blockInstanceId" : "259425e1-3524-426a-917f-990d44b31239",
+          "pinName" : "Q1"
+        },
+        "target" : {
+          "blockInstanceId" : "e25fdd65-eafe-4b9e-a448-369c2c8dc92a",
+          "pinName" : "IN"
+        },
+        "waypoints" : [ ]
+      }, {
+        "id" : "e21341a8-c505-4b98-81ed-aa22caae2789",
+        "source" : {
+          "blockInstanceId" : "e25fdd65-eafe-4b9e-a448-369c2c8dc92a",
+          "pinName" : "Q"
+        },
+        "target" : {
+          "blockInstanceId" : "97870872-49ff-4222-a315-68236e451917",
+          "pinName" : "IN"
+        },
+        "waypoints" : [ ]
+      }, {
+        "id" : "1971d838-67de-4ed2-94d5-7c7579299401",
+        "source" : {
+          "blockInstanceId" : "97870872-49ff-4222-a315-68236e451917",
+          "pinName" : "Q"
+        },
+        "target" : {
+          "blockInstanceId" : null,
+          "pinName" : "STAR_CONTACTOR"
+        },
+        "waypoints" : [ ]
+      }, {
+        "id" : "a757014b-34ba-4f2f-8fd9-54bad708688e",
+        "source" : {
+          "blockInstanceId" : "e25fdd65-eafe-4b9e-a448-369c2c8dc92a",
+          "pinName" : "Q"
+        },
+        "target" : {
+          "blockInstanceId" : null,
+          "pinName" : "DELTA_CONTACTOR"
+        },
+        "waypoints" : [ ]
+      } ]
+    },
+    "comment" : ""
+  } ]
+}

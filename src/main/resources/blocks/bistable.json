@@ -1,0 +1,16 @@
+[
+  { "id": "SR", "displayName": "SR (Set dominant)", "category": "BISTABLE", "standard": true, "stateful": true,
+    "description": "Set-dominant bistable: if S1 and R both TRUE, Q1 becomes TRUE. IEC 61131-3 standard block.",
+    "inputs": [
+      { "name": "S1", "type": "BOOL", "defaultLiteral": "FALSE" },
+      { "name": "R", "type": "BOOL", "defaultLiteral": "FALSE" }
+    ],
+    "outputs": [ { "name": "Q1", "type": "BOOL" } ] },
+  { "id": "RS", "displayName": "RS (Reset dominant)", "category": "BISTABLE", "standard": true, "stateful": true,
+    "description": "Reset-dominant bistable: if S and R1 both TRUE, Q1 becomes FALSE. IEC 61131-3 standard block.",
+    "inputs": [
+      { "name": "S", "type": "BOOL", "defaultLiteral": "FALSE" },
+      { "name": "R1", "type": "BOOL", "defaultLiteral": "FALSE" }
+    ],
+    "outputs": [ { "name": "Q1", "type": "BOOL" } ] }
+]

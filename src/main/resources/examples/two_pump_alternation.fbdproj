@@ -1,0 +1,158 @@
+{
+  "formatVersion" : 1,
+  "name" : "Two-Pump Alternation Station",
+  "author" : "FBD Studio",
+  "description" : "Alternates between two pumps on successive start commands using an R_TRIG-clocked CTU.",
+  "globalVariables" : [ ],
+  "pous" : [ {
+    "name" : "MAIN",
+    "kind" : "PROGRAM",
+    "variables" : [ {
+      "name" : "START_CYCLE",
+      "type" : "BOOL",
+      "kind" : "VAR_INPUT",
+      "initialValue" : "FALSE",
+      "comment" : ""
+    }, {
+      "name" : "PUMP1_RUN",
+      "type" : "BOOL",
+      "kind" : "VAR_OUTPUT",
+      "initialValue" : "FALSE",
+      "comment" : ""
+    }, {
+      "name" : "PUMP2_RUN",
+      "type" : "BOOL",
+      "kind" : "VAR_OUTPUT",
+      "initialValue" : "FALSE",
+      "comment" : ""
+    } ],
+    "network" : {
+      "blocks" : [ {
+        "id" : "c77754ac-3c4e-4f31-859f-9f657a18e1ec",
+        "typeId" : "R_TRIG",
+        "instanceName" : "cycle_edge",
+        "x" : 240.0,
+        "y" : 100.0,
+        "manualExecutionOrder" : -1,
+        "extraPinCount" : -1,
+        "pinLiterals" : { },
+        "negatedPins" : { }
+      }, {
+        "id" : "aa577773-5657-471c-8b78-4a891c80432c",
+        "typeId" : "CTU",
+        "instanceName" : "alt_counter",
+        "x" : 420.0,
+        "y" : 100.0,
+        "manualExecutionOrder" : -1,
+        "extraPinCount" : -1,
+        "pinLiterals" : {
+          "PV" : "2"
+        },
+        "negatedPins" : { }
+      }, {
+        "id" : "f4449701-76f6-4e50-922b-0361fc9709ba",
+        "typeId" : "EQ",
+        "instanceName" : "",
+        "x" : 620.0,
+        "y" : 60.0,
+        "manualExecutionOrder" : -1,
+        "extraPinCount" : -1,
+        "pinLiterals" : {
+          "IN2" : "1"
+        },
+        "negatedPins" : { }
+      }, {
+        "id" : "02e2d8f4-c7a0-4b7c-8a6e-97b5cdeaf298",
+        "typeId" : "EQ",
+        "instanceName" : "",
+        "x" : 620.0,
+        "y" : 160.0,
+        "manualExecutionOrder" : -1,
+        "extraPinCount" : -1,
+        "pinLiterals" : {
+          "IN2" : "0"
+        },
+        "negatedPins" : { }
+      } ],
+      "connections" : [ {
+        "id" : "e407960a-8c96-4e69-be95-ee02a4394c3d",
+        "source" : {
+          "blockInstanceId" : null,
+          "pinName" : "START_CYCLE"
+        },
+        "target" : {
+          "blockInstanceId" : "c77754ac-3c4e-4f31-859f-9f657a18e1ec",
+          "pinName" : "CLK"
+        },
+        "waypoints" : [ ]
+      }, {
+        "id" : "3ecaa557-17a8-46eb-94fc-bbdcbaf5a96a",
+        "source" : {
+          "blockInstanceId" : "c77754ac-3c4e-4f31-859f-9f657a18e1ec",
+          "pinName" : "Q"
+        },
+        "target" : {
+          "blockInstanceId" : "aa577773-5657-471c-8b78-4a891c80432c",
+          "pinName" : "CU"
+        },
+        "waypoints" : [ ]
+      }, {
+        "id" : "85aa809d-bb83-419d-8f09-efd1c33dbdc6",
+        "source" : {
+          "blockInstanceId" : "aa577773-5657-471c-8b78-4a891c80432c",
+          "pinName" : "Q"
+        },
+        "target" : {
+          "blockInstanceId" : "aa577773-5657-471c-8b78-4a891c80432c",
+          "pinName" : "R"
+        },
+        "waypoints" : [ ]
+      }, {
+        "id" : "7696e763-2170-458d-8f56-436c7575684b",
+        "source" : {
+          "blockInstanceId" : "aa577773-5657-471c-8b78-4a891c80432c",
+          "pinName" : "CV"
+        },
+        "target" : {
+          "blockInstanceId" : "f4449701-76f6-4e50-922b-0361fc9709ba",
+          "pinName" : "IN1"
+        },
+        "waypoints" : [ ]
+      }, {
+        "id" : "19cf6e6d-fd9f-4232-9faa-6f2a69e1b751",
+        "source" : {
+          "blockInstanceId" : "aa577773-5657-471c-8b78-4a891c80432c",
+          "pinName" : "CV"
+        },
+        "target" : {
+          "blockInstanceId" : "02e2d8f4-c7a0-4b7c-8a6e-97b5cdeaf298",
+          "pinName" : "IN1"
+        },
+        "waypoints" : [ ]
+      }, {
+        "id" : "b40673b1-268b-4887-bc96-b5e4a94295e8",
+        "source" : {
+          "blockInstanceId" : "f4449701-76f6-4e50-922b-0361fc9709ba",
+          "pinName" : "Q"
+        },
+        "target" : {
+          "blockInstanceId" : null,
+          "pinName" : "PUMP1_RUN"
+        },
+        "waypoints" : [ ]
+      }, {
+        "id" : "d55d28a4-4c33-489f-b6c7-b8268f3b2964",
+        "source" : {
+          "blockInstanceId" : "02e2d8f4-c7a0-4b7c-8a6e-97b5cdeaf298",
+          "pinName" : "Q"
+        },
+        "target" : {
+          "blockInstanceId" : null,
+          "pinName" : "PUMP2_RUN"
+        },
+        "waypoints" : [ ]
+      } ]
+    },
+    "comment" : ""
+  } ]
+}

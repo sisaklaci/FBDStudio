@@ -1,0 +1,85 @@
+{
+  "formatVersion" : 1,
+  "name" : "Tank Level Hysteresis Control",
+  "author" : "FBD Studio",
+  "description" : "A bang-bang pump controller using the HYSTERESIS block on an analog level signal.",
+  "globalVariables" : [ ],
+  "pous" : [ {
+    "name" : "MAIN",
+    "kind" : "PROGRAM",
+    "variables" : [ {
+      "name" : "TANK_LEVEL",
+      "type" : "REAL",
+      "kind" : "VAR_INPUT",
+      "initialValue" : "0.0",
+      "comment" : ""
+    }, {
+      "name" : "FILL_PUMP_ON",
+      "type" : "BOOL",
+      "kind" : "VAR_OUTPUT",
+      "initialValue" : "FALSE",
+      "comment" : ""
+    } ],
+    "network" : {
+      "blocks" : [ {
+        "id" : "e78c838d-a634-42f7-9b27-93789b776131",
+        "typeId" : "NOT",
+        "instanceName" : "",
+        "x" : 480.0,
+        "y" : 100.0,
+        "manualExecutionOrder" : -1,
+        "extraPinCount" : -1,
+        "pinLiterals" : { },
+        "negatedPins" : { }
+      }, {
+        "id" : "389df240-acdc-4d80-ac80-bf1cb6bf0802",
+        "typeId" : "HYSTERESIS",
+        "instanceName" : "level_hyst",
+        "x" : 280.0,
+        "y" : 100.0,
+        "manualExecutionOrder" : -1,
+        "extraPinCount" : -1,
+        "pinLiterals" : {
+          "LOW" : "20.0",
+          "HIGH" : "80.0"
+        },
+        "negatedPins" : { }
+      } ],
+      "connections" : [ {
+        "id" : "d497baa7-59e6-42ae-9e84-6ba78d817b4c",
+        "source" : {
+          "blockInstanceId" : null,
+          "pinName" : "TANK_LEVEL"
+        },
+        "target" : {
+          "blockInstanceId" : "389df240-acdc-4d80-ac80-bf1cb6bf0802",
+          "pinName" : "IN"
+        },
+        "waypoints" : [ ]
+      }, {
+        "id" : "3ba4f2c3-6fd1-46c7-9d53-6cdbc58b3293",
+        "source" : {
+          "blockInstanceId" : "389df240-acdc-4d80-ac80-bf1cb6bf0802",
+          "pinName" : "Q"
+        },
+        "target" : {
+          "blockInstanceId" : "e78c838d-a634-42f7-9b27-93789b776131",
+          "pinName" : "IN"
+        },
+        "waypoints" : [ ]
+      }, {
+        "id" : "b5e171f8-7abc-4290-b0a2-5b76072f8ae8",
+        "source" : {
+          "blockInstanceId" : "e78c838d-a634-42f7-9b27-93789b776131",
+          "pinName" : "Q"
+        },
+        "target" : {
+          "blockInstanceId" : null,
+          "pinName" : "FILL_PUMP_ON"
+        },
+        "waypoints" : [ ]
+      } ]
+    },
+    "comment" : ""
+  } ]
+}

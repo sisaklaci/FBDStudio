@@ -1,0 +1,84 @@
+{
+  "formatVersion" : 1,
+  "name" : "PID Temperature Control",
+  "author" : "FBD Studio",
+  "description" : "Closed-loop heater control using the PID extended block.",
+  "globalVariables" : [ ],
+  "pous" : [ {
+    "name" : "MAIN",
+    "kind" : "PROGRAM",
+    "variables" : [ {
+      "name" : "TEMP_SETPOINT",
+      "type" : "REAL",
+      "kind" : "VAR_INPUT",
+      "initialValue" : "180.0",
+      "comment" : ""
+    }, {
+      "name" : "TEMP_PV",
+      "type" : "REAL",
+      "kind" : "VAR_INPUT",
+      "initialValue" : "20.0",
+      "comment" : ""
+    }, {
+      "name" : "HEATER_OUTPUT",
+      "type" : "REAL",
+      "kind" : "VAR_OUTPUT",
+      "initialValue" : "0.0",
+      "comment" : ""
+    } ],
+    "network" : {
+      "blocks" : [ {
+        "id" : "026b5970-a391-4184-a7c3-c9c1d9a47d9b",
+        "typeId" : "PID",
+        "instanceName" : "heater_pid",
+        "x" : 320.0,
+        "y" : 100.0,
+        "manualExecutionOrder" : -1,
+        "extraPinCount" : -1,
+        "pinLiterals" : {
+          "KP" : "2.0",
+          "KI" : "0.4",
+          "KD" : "0.05",
+          "MN" : "0.0",
+          "MX" : "100.0"
+        },
+        "negatedPins" : { }
+      } ],
+      "connections" : [ {
+        "id" : "c85f6a5a-a022-4ec2-a133-73f08da0956e",
+        "source" : {
+          "blockInstanceId" : null,
+          "pinName" : "TEMP_SETPOINT"
+        },
+        "target" : {
+          "blockInstanceId" : "026b5970-a391-4184-a7c3-c9c1d9a47d9b",
+          "pinName" : "SP"
+        },
+        "waypoints" : [ ]
+      }, {
+        "id" : "000ec27e-c943-4cd9-9779-5f116c1fb243",
+        "source" : {
+          "blockInstanceId" : null,
+          "pinName" : "TEMP_PV"
+        },
+        "target" : {
+          "blockInstanceId" : "026b5970-a391-4184-a7c3-c9c1d9a47d9b",
+          "pinName" : "PV"
+        },
+        "waypoints" : [ ]
+      }, {
+        "id" : "5f9f22e4-41db-4de6-945c-71afb5499464",
+        "source" : {
+          "blockInstanceId" : "026b5970-a391-4184-a7c3-c9c1d9a47d9b",
+          "pinName" : "OUT"
+        },
+        "target" : {
+          "blockInstanceId" : null,
+          "pinName" : "HEATER_OUTPUT"
+        },
+        "waypoints" : [ ]
+      } ]
+    },
+    "comment" : ""
+  } ]
+}

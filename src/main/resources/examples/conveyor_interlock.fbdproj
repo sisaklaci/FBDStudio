@@ -1,0 +1,116 @@
+{
+  "formatVersion" : 1,
+  "name" : "Conveyor Start/Stop Interlock",
+  "author" : "FBD Studio",
+  "description" : "Classic start/stop/E-stop motor interlock built from an SR latch.",
+  "globalVariables" : [ ],
+  "pous" : [ {
+    "name" : "MAIN",
+    "kind" : "PROGRAM",
+    "variables" : [ {
+      "name" : "START_PB",
+      "type" : "BOOL",
+      "kind" : "VAR_INPUT",
+      "initialValue" : "FALSE",
+      "comment" : ""
+    }, {
+      "name" : "STOP_PB",
+      "type" : "BOOL",
+      "kind" : "VAR_INPUT",
+      "initialValue" : "FALSE",
+      "comment" : ""
+    }, {
+      "name" : "E_STOP",
+      "type" : "BOOL",
+      "kind" : "VAR_INPUT",
+      "initialValue" : "FALSE",
+      "comment" : ""
+    }, {
+      "name" : "CONVEYOR_RUN",
+      "type" : "BOOL",
+      "kind" : "VAR_OUTPUT",
+      "initialValue" : "FALSE",
+      "comment" : ""
+    } ],
+    "network" : {
+      "blocks" : [ {
+        "id" : "98180255-52a0-4364-a787-40e5c1b3c002",
+        "typeId" : "OR",
+        "instanceName" : "",
+        "x" : 260.0,
+        "y" : 120.0,
+        "manualExecutionOrder" : -1,
+        "extraPinCount" : -1,
+        "pinLiterals" : { },
+        "negatedPins" : { }
+      }, {
+        "id" : "6860c5fb-4ab6-4d85-a7ad-af11186e8c30",
+        "typeId" : "SR",
+        "instanceName" : "conveyor_latch",
+        "x" : 460.0,
+        "y" : 100.0,
+        "manualExecutionOrder" : -1,
+        "extraPinCount" : -1,
+        "pinLiterals" : { },
+        "negatedPins" : { }
+      } ],
+      "connections" : [ {
+        "id" : "450b18e0-7822-4b65-8f8e-a7534ed81086",
+        "source" : {
+          "blockInstanceId" : null,
+          "pinName" : "STOP_PB"
+        },
+        "target" : {
+          "blockInstanceId" : "98180255-52a0-4364-a787-40e5c1b3c002",
+          "pinName" : "IN1"
+        },
+        "waypoints" : [ ]
+      }, {
+        "id" : "7c7889de-85d5-437b-98f5-8c7b390675e5",
+        "source" : {
+          "blockInstanceId" : null,
+          "pinName" : "E_STOP"
+        },
+        "target" : {
+          "blockInstanceId" : "98180255-52a0-4364-a787-40e5c1b3c002",
+          "pinName" : "IN2"
+        },
+        "waypoints" : [ ]
+      }, {
+        "id" : "2efd290d-c3cc-46dd-bd6f-24ccd09dadfc",
+        "source" : {
+          "blockInstanceId" : null,
+          "pinName" : "START_PB"
+        },
+        "target" : {
+          "blockInstanceId" : "6860c5fb-4ab6-4d85-a7ad-af11186e8c30",
+          "pinName" : "S1"
+        },
+        "waypoints" : [ ]
+      }, {
+        "id" : "c507ba5c-1dcd-4c80-94f0-03d130ad9072",
+        "source" : {
+          "blockInstanceId" : "98180255-52a0-4364-a787-40e5c1b3c002",
+          "pinName" : "Q"
+        },
+        "target" : {
+          "blockInstanceId" : "6860c5fb-4ab6-4d85-a7ad-af11186e8c30",
+          "pinName" : "R"
+        },
+        "waypoints" : [ ]
+      }, {
+        "id" : "ebaf7197-0e43-4f94-ae32-d743d1a9305d",
+        "source" : {
+          "blockInstanceId" : "6860c5fb-4ab6-4d85-a7ad-af11186e8c30",
+          "pinName" : "Q1"
+        },
+        "target" : {
+          "blockInstanceId" : null,
+          "pinName" : "CONVEYOR_RUN"
+        },
+        "waypoints" : [ ]
+      } ]
+    },
+    "comment" : ""
+  } ]
+}

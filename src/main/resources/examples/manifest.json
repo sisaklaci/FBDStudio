@@ -1,0 +1,49 @@
+[ {
+  "file" : "logic_basics.fbdproj",
+  "title" : "Logic Basics",
+  "description" : "AND/OR/NOT fundamentals: a motor run-permit interlocked with a guard door and an inverted E-Stop."
+}, {
+  "file" : "blinking_alarm.fbdproj",
+  "title" : "Blinking Alarm (TP)",
+  "description" : "A TP pulse timer wired through a feedback NOT to retrigger itself, flashing BEACON on/off every 500ms while ALARM_ACTIVE is TRUE."
+}, {
+  "file" : "conveyor_interlock.fbdproj",
+  "title" : "Conveyor Start/Stop Interlock",
+  "description" : "START_PB sets an SR latch, STOP_PB or E_STOP (via OR) resets it; CONVEYOR_RUN follows the latch."
+}, {
+  "file" : "batch_counter.fbdproj",
+  "title" : "Batch Counter (CTU)",
+  "description" : "Counts PART_SENSOR pulses with a CTU block; BATCH_FULL goes TRUE once PART_COUNT reaches the preset of 10."
+}, {
+  "file" : "tank_hysteresis.fbdproj",
+  "title" : "Tank Level Hysteresis Control",
+  "description" : "FILL_PUMP_ON turns on below 20% and off above 80% of TANK_LEVEL, using the HYSTERESIS block to avoid pump chatter."
+}, {
+  "file" : "pid_temperature.fbdproj",
+  "title" : "PID Temperature Control",
+  "description" : "A PID block drives HEATER_OUTPUT (0-100%) to bring TEMP_PV to TEMP_SETPOINT."
+}, {
+  "file" : "seatbelt_warning.fbdproj",
+  "title" : "Seatbelt Warning Chain",
+  "description" : "CHIME sounds if IGNITION_ON stays TRUE for 5 seconds while SEATBELT_FASTENED is FALSE."
+}, {
+  "file" : "two_pump_alternation.fbdproj",
+  "title" : "Two-Pump Alternation Station",
+  "description" : "Each START_CYCLE pulse advances a mod-2 counter so PUMP1_RUN and PUMP2_RUN alternate across successive cycles."
+}, {
+  "file" : "debounce_circuit.fbdproj",
+  "title" : "Switch Debounce Circuit",
+  "description" : "RAW_SWITCH must stay TRUE for 50ms before DEBOUNCED follows, filtering out contact bounce."
+}, {
+  "file" : "parking_garage_counter.fbdproj",
+  "title" : "Parking Garage Car Counter",
+  "description" : "CTUD increments on CAR_ENTER and decrements on CAR_EXIT; LOT_FULL lights once capacity (50) is reached."
+}, {
+  "file" : "emergency_stop_chain.fbdproj",
+  "title" : "Emergency Stop Chain",
+  "description" : "Any of three E-Stop stations trips a reset-dominant RS latch; PLANT_SAFE_TO_RUN only returns after RESET_ACK and all stops clear."
+}, {
+  "file" : "star_delta_start.fbdproj",
+  "title" : "Star-Delta Motor Start Sequence",
+  "description" : "START_PB/STOP_PB latch MAIN_CONTACTOR; STAR_CONTACTOR runs for 3s, then DELTA_CONTACTOR takes over."
+} ]

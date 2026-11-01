@@ -1,0 +1,10 @@
+[
+  { "id": "R_TRIG", "displayName": "R_TRIG", "category": "EDGE", "standard": true, "stateful": true,
+    "description": "Rising-edge detector: Q is TRUE for one scan when CLK transitions FALSE to TRUE. IEC 61131-3 standard block.",
+    "inputs": [ { "name": "CLK", "type": "BOOL", "defaultLiteral": "FALSE" } ],
+    "outputs": [ { "name": "Q", "type": "BOOL" } ] },
+  { "id": "F_TRIG", "displayName": "F_TRIG", "category": "EDGE", "standard": true, "stateful": true,
+    "description": "Falling-edge detector: Q is TRUE for one scan when CLK transitions TRUE to FALSE. IEC 61131-3 standard block.",
+    "inputs": [ { "name": "CLK", "type": "BOOL", "defaultLiteral": "FALSE" } ],
+    "outputs": [ { "name": "Q", "type": "BOOL" } ] }
+]

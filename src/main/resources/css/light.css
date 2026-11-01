@@ -1,0 +1,12 @@
+.root {
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-font-size: 12px;
+}
+
+.titled-pane > .title {
+    -fx-background-color: #e3e8f0;
+}
+
+.tab-pane .tab-header-area {
+    -fx-padding: 2 0 0 6;
+}

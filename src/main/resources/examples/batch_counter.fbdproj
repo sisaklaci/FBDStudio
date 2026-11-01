@@ -1,0 +1,97 @@
+{
+  "formatVersion" : 1,
+  "name" : "Batch Counter",
+  "author" : "FBD Studio",
+  "description" : "CTU counts parts from a sensor until a batch of 10 is reached.",
+  "globalVariables" : [ ],
+  "pous" : [ {
+    "name" : "MAIN",
+    "kind" : "PROGRAM",
+    "variables" : [ {
+      "name" : "PART_SENSOR",
+      "type" : "BOOL",
+      "kind" : "VAR_INPUT",
+      "initialValue" : "FALSE",
+      "comment" : ""
+    }, {
+      "name" : "RESET_BATCH",
+      "type" : "BOOL",
+      "kind" : "VAR_INPUT",
+      "initialValue" : "FALSE",
+      "comment" : ""
+    }, {
+      "name" : "BATCH_FULL",
+      "type" : "BOOL",
+      "kind" : "VAR_OUTPUT",
+      "initialValue" : "FALSE",
+      "comment" : ""
+    }, {
+      "name" : "PART_COUNT",
+      "type" : "DINT",
+      "kind" : "VAR_OUTPUT",
+      "initialValue" : "0",
+      "comment" : ""
+    } ],
+    "network" : {
+      "blocks" : [ {
+        "id" : "25959d75-676f-4ac4-9b4b-164be4dd7e0e",
+        "typeId" : "CTU",
+        "instanceName" : "batch_ctu",
+        "x" : 300.0,
+        "y" : 100.0,
+        "manualExecutionOrder" : -1,
+        "extraPinCount" : -1,
+        "pinLiterals" : {
+          "PV" : "10"
+        },
+        "negatedPins" : { }
+      } ],
+      "connections" : [ {
+        "id" : "8549775a-068d-4234-bcaf-cfd2a1ef90c2",
+        "source" : {
+          "blockInstanceId" : null,
+          "pinName" : "PART_SENSOR"
+        },
+        "target" : {
+          "blockInstanceId" : "25959d75-676f-4ac4-9b4b-164be4dd7e0e",
+          "pinName" : "CU"
+        },
+        "waypoints" : [ ]
+      }, {
+        "id" : "01fff41c-fcc4-4857-8722-f61032a8b54c",
+        "source" : {
+          "blockInstanceId" : null,
+          "pinName" : "RESET_BATCH"
+        },
+        "target" : {
+          "blockInstanceId" : "25959d75-676f-4ac4-9b4b-164be4dd7e0e",
+          "pinName" : "R"
+        },
+        "waypoints" : [ ]
+      }, {
+        "id" : "492ed335-4737-435e-9482-3fe5f94284a3",
+        "source" : {
+          "blockInstanceId" : "25959d75-676f-4ac4-9b4b-164be4dd7e0e",
+          "pinName" : "Q"
+        },
+        "target" : {
+          "blockInstanceId" : null,
+          "pinName" : "BATCH_FULL"
+        },
+        "waypoints" : [ ]
+      }, {
+        "id" : "8c685541-932f-4ba0-a150-45e4012b381a",
+        "source" : {
+          "blockInstanceId" : "25959d75-676f-4ac4-9b4b-164be4dd7e0e",
+          "pinName" : "CV"
+        },
+        "target" : {
+          "blockInstanceId" : null,
+          "pinName" : "PART_COUNT"
+        },
+        "waypoints" : [ ]
+      } ]
+    },
+    "comment" : ""
+  } ]
+}

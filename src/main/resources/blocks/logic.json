@@ -1,0 +1,66 @@
+[
+  {
+    "id": "AND",
+    "displayName": "AND",
+    "category": "LOGIC",
+    "standard": true,
+    "description": "Logical AND of all inputs. IEC 61131-3 standard block.",
+    "variadicInputs": true,
+    "minInputs": 2,
+    "maxInputs": 16,
+    "inputs": [
+      { "name": "IN1", "type": "BOOL", "defaultLiteral": "FALSE" },
+      { "name": "IN2", "type": "BOOL", "defaultLiteral": "FALSE" }
+    ],
+    "outputs": [
+      { "name": "Q", "type": "BOOL" }
+    ]
+  },
+  {
+    "id": "OR",
+    "displayName": "OR",
+    "category": "LOGIC",
+    "standard": true,
+    "description": "Logical OR of all inputs. IEC 61131-3 standard block.",
+    "variadicInputs": true,
+    "minInputs": 2,
+    "maxInputs": 16,
+    "inputs": [
+      { "name": "IN1", "type": "BOOL", "defaultLiteral": "FALSE" },
+      { "name": "IN2", "type": "BOOL", "defaultLiteral": "FALSE" }
+    ],
+    "outputs": [
+      { "name": "Q", "type": "BOOL" }
+    ]
+  },
+  {
+    "id": "XOR",
+    "displayName": "XOR",
+    "category": "LOGIC",
+    "standard": true,
+    "description": "Logical exclusive-OR of all inputs. IEC 61131-3 standard block.",
+    "variadicInputs": true,
+    "minInputs": 2,
+    "maxInputs": 16,
+    "inputs": [
+      { "name": "IN1", "type": "BOOL", "defaultLiteral": "FALSE" },
+      { "name": "IN2", "type": "BOOL", "defaultLiteral": "FALSE" }
+    ],
+    "outputs": [
+      { "name": "Q", "type": "BOOL" }
+    ]
+  },
+  {
+    "id": "NOT",
+    "displayName": "NOT",
+    "category": "LOGIC",
+    "standard": true,
+    "description": "Logical negation. IEC 61131-3 standard block.",
+    "inputs": [
+      { "name": "IN", "type": "BOOL", "defaultLiteral": "FALSE" }
+    ],
+    "outputs": [
+      { "name": "Q", "type": "BOOL" }
+    ]
+  }
+]

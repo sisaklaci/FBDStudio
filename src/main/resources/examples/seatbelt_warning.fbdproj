@@ -1,0 +1,122 @@
+{
+  "formatVersion" : 1,
+  "name" : "Seatbelt Warning Chain",
+  "author" : "FBD Studio",
+  "description" : "Ignition-on + no seatbelt triggers a chime after a short grace period.",
+  "globalVariables" : [ ],
+  "pous" : [ {
+    "name" : "MAIN",
+    "kind" : "PROGRAM",
+    "variables" : [ {
+      "name" : "IGNITION_ON",
+      "type" : "BOOL",
+      "kind" : "VAR_INPUT",
+      "initialValue" : "FALSE",
+      "comment" : ""
+    }, {
+      "name" : "SEATBELT_FASTENED",
+      "type" : "BOOL",
+      "kind" : "VAR_INPUT",
+      "initialValue" : "FALSE",
+      "comment" : ""
+    }, {
+      "name" : "CHIME",
+      "type" : "BOOL",
+      "kind" : "VAR_OUTPUT",
+      "initialValue" : "FALSE",
+      "comment" : ""
+    } ],
+    "network" : {
+      "blocks" : [ {
+        "id" : "9176a357-0f8a-4d50-adf8-5e271eaaf183",
+        "typeId" : "NOT",
+        "instanceName" : "",
+        "x" : 240.0,
+        "y" : 100.0,
+        "manualExecutionOrder" : -1,
+        "extraPinCount" : -1,
+        "pinLiterals" : { },
+        "negatedPins" : { }
+      }, {
+        "id" : "6d92d898-874c-41da-ba2f-8c05759939f7",
+        "typeId" : "AND",
+        "instanceName" : "",
+        "x" : 420.0,
+        "y" : 100.0,
+        "manualExecutionOrder" : -1,
+        "extraPinCount" : -1,
+        "pinLiterals" : { },
+        "negatedPins" : { }
+      }, {
+        "id" : "bc7e6097-fb7d-40e1-adfe-58d28ab31662",
+        "typeId" : "TON",
+        "instanceName" : "belt_grace",
+        "x" : 600.0,
+        "y" : 100.0,
+        "manualExecutionOrder" : -1,
+        "extraPinCount" : -1,
+        "pinLiterals" : {
+          "PT" : "T#5s"
+        },
+        "negatedPins" : { }
+      } ],
+      "connections" : [ {
+        "id" : "93c3df38-01bc-41d1-bbc0-eec297aeb5d0",
+        "source" : {
+          "blockInstanceId" : null,
+          "pinName" : "SEATBELT_FASTENED"
+        },
+        "target" : {
+          "blockInstanceId" : "9176a357-0f8a-4d50-adf8-5e271eaaf183",
+          "pinName" : "IN"
+        },
+        "waypoints" : [ ]
+      }, {
+        "id" : "23ca346f-e911-466a-bada-18d4e61d2dff",
+        "source" : {
+          "blockInstanceId" : null,
+          "pinName" : "IGNITION_ON"
+        },
+        "target" : {
+          "blockInstanceId" : "6d92d898-874c-41da-ba2f-8c05759939f7",
+          "pinName" : "IN1"
+        },
+        "waypoints" : [ ]
+      }, {
+        "id" : "874e158e-5f5b-4147-9282-a1e575c4c61a",
+        "source" : {
+          "blockInstanceId" : "9176a357-0f8a-4d50-adf8-5e271eaaf183",
+          "pinName" : "Q"
+        },
+        "target" : {
+          "blockInstanceId" : "6d92d898-874c-41da-ba2f-8c05759939f7",
+          "pinName" : "IN2"
+        },
+        "waypoints" : [ ]
+      }, {
+        "id" : "6feb8470-4016-499e-badd-f96bf51f4247",
+        "source" : {
+          "blockInstanceId" : "6d92d898-874c-41da-ba2f-8c05759939f7",
+          "pinName" : "Q"
+        },
+        "target" : {
+          "blockInstanceId" : "bc7e6097-fb7d-40e1-adfe-58d28ab31662",
+          "pinName" : "IN"
+        },
+        "waypoints" : [ ]
+      }, {
+        "id" : "1c9bc320-bd43-437d-91a7-e32b4e962b70",
+        "source" : {
+          "blockInstanceId" : "bc7e6097-fb7d-40e1-adfe-58d28ab31662",
+          "pinName" : "Q"
+        },
+        "target" : {
+          "blockInstanceId" : null,
+          "pinName" : "CHIME"
+        },
+        "waypoints" : [ ]
+      } ]
+    },
+    "comment" : ""
+  } ]
+}

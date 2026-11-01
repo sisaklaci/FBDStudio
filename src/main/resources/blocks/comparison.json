@@ -1,0 +1,49 @@
+[
+  { "id": "GT", "displayName": "GT (>)", "category": "COMPARISON", "standard": true,
+    "description": "Monotonically decreasing comparison: IN1 > IN2 > ... IEC 61131-3 standard block.",
+    "variadicInputs": true, "minInputs": 2, "maxInputs": 8,
+    "inputs": [
+      { "name": "IN1", "type": "ANY", "defaultLiteral": "0" },
+      { "name": "IN2", "type": "ANY", "defaultLiteral": "0" }
+    ],
+    "outputs": [ { "name": "Q", "type": "BOOL" } ] },
+  { "id": "GE", "displayName": "GE (>=)", "category": "COMPARISON", "standard": true,
+    "description": "IN1 >= IN2 >= ... IEC 61131-3 standard block.",
+    "variadicInputs": true, "minInputs": 2, "maxInputs": 8,
+    "inputs": [
+      { "name": "IN1", "type": "ANY", "defaultLiteral": "0" },
+      { "name": "IN2", "type": "ANY", "defaultLiteral": "0" }
+    ],
+    "outputs": [ { "name": "Q", "type": "BOOL" } ] },
+  { "id": "EQ", "displayName": "EQ (=)", "category": "COMPARISON", "standard": true,
+    "description": "IN1 = IN2 = ... IEC 61131-3 standard block.",
+    "variadicInputs": true, "minInputs": 2, "maxInputs": 8,
+    "inputs": [
+      { "name": "IN1", "type": "ANY", "defaultLiteral": "0" },
+      { "name": "IN2", "type": "ANY", "defaultLiteral": "0" }
+    ],
+    "outputs": [ { "name": "Q", "type": "BOOL" } ] },
+  { "id": "NE", "displayName": "NE (<>)", "category": "COMPARISON", "standard": true,
+    "description": "IN1 <> IN2. IEC 61131-3 standard block.",
+    "inputs": [
+      { "name": "IN1", "type": "ANY", "defaultLiteral": "0" },
+      { "name": "IN2", "type": "ANY", "defaultLiteral": "0" }
+    ],
+    "outputs": [ { "name": "Q", "type": "BOOL" } ] },
+  { "id": "LE", "displayName": "LE (<=)", "category": "COMPARISON", "standard": true,
+    "description": "IN1 <= IN2 <= ... IEC 61131-3 standard block.",
+    "variadicInputs": true, "minInputs": 2, "maxInputs": 8,
+    "inputs": [
+      { "name": "IN1", "type": "ANY", "defaultLiteral": "0" },
+      { "name": "IN2", "type": "ANY", "defaultLiteral": "0" }
+    ],
+    "outputs": [ { "name": "Q", "type": "BOOL" } ] },
+  { "id": "LT", "displayName": "LT (<)", "category": "COMPARISON", "standard": true,
+    "description": "IN1 < IN2 < ... IEC 61131-3 standard block.",
+    "variadicInputs": true, "minInputs": 2, "maxInputs": 8,
+    "inputs": [
+      { "name": "IN1", "type": "ANY", "defaultLiteral": "0" },
+      { "name": "IN2", "type": "ANY", "defaultLiteral": "0" }
+    ],
+    "outputs": [ { "name": "Q", "type": "BOOL" } ] }
+]
